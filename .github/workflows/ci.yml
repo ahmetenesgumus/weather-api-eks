@@ -1,0 +1,25 @@
+name: CI (.NET + Docker build)
+on:
+  push: { branches: [ "main" ] }
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - name: dotnet restore + build
+        run: |
+          dotnet restore
+          dotnet build -c Release --no-restore
+      - name: Docker build test
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          platforms: linux/amd64
+          build-args: |
+            PROJECT_DLL=${{ secrets.PROJECT_DLL }}
