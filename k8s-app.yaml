@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weatherforecast
+  namespace: weather
+  labels:
+    app: weatherforecast
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherforecast
+  template:
+    metadata:
+      labels:
+        app: weatherforecast
+    spec:
+      containers:
+        - name: api
+          image: 120091909981.dkr.ecr.eu-central-1.amazonaws.com/wetherforecast:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+          readinessProbe:
+            httpGet:
+              path: /weatherforecast
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /weatherforecast
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            runAsUser: 10001
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: weatherforecast
+  namespace: weather
+  labels:
+    app: weatherforecast
+spec:
+  type: ClusterIP
+  selector:
+    app: weatherforecast
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
