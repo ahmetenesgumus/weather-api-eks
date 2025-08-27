@@ -2,20 +2,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Tüm dosyaları kopyala ve restore/publish yap
+# Csproj'u önce kopyala ve restore et (cache için iyi)
+COPY WhetherForecast/WhetherForecast.csproj WhetherForecast/
+RUN dotnet restore WhetherForecast/WhetherForecast.csproj
+
+# Sonra tüm repo içeriğini kopyala ve publish et
 COPY . .
-# AppHost kapalı: her platformda taşınabilir DLL üretir
-RUN dotnet publish -c Release -o /out /p:UseAppHost=false
+RUN dotnet publish WhetherForecast/WhetherForecast.csproj -c Release -o /out /p:UseAppHost=false
 
 # ---------- Runtime stage ----------
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /out .
-
-# Konteyner içi port
 ENV ASPNETCORE_URLS=http://+:8080
 EXPOSE 8080
-
-# Sadece **uygulama DLL'ini** başlat
 ENTRYPOINT ["dotnet","WhetherForecast.dll"]
-

@@ -1,0 +1,12 @@
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/WhetherForecast
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/appsettings.Development.json
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/appsettings.json
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/WhetherForecast.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/WhetherForecast.deps.json
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/WhetherForecast.runtimeconfig.json
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/WhetherForecast.pdb
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/Microsoft.AspNetCore.OpenApi.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/Microsoft.OpenApi.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/Swashbuckle.AspNetCore.Swagger.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/out/Swashbuckle.AspNetCore.SwaggerUI.dll

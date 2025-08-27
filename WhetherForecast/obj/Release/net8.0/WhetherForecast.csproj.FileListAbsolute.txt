@@ -31,3 +31,4 @@
 /Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/WhetherForecast/obj/Release/net8.0/WhetherForecast.pdb
 /Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/WhetherForecast/obj/Release/net8.0/WhetherForecast.genruntimeconfig.cache
 /Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/WhetherForecast/obj/Release/net8.0/ref/WhetherForecast.dll
+/Users/ahmetenesgumus/Desktop/Enes/provision/EKS-AKS/aws-deneme1/WhetherForecast/obj/Release/net8.0/WhetherForecast.sourcelink.json
