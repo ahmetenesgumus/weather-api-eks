@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: 120091909981.dkr.ecr.eu-central-1.amazonaws.com/wetherforecast:latest
+          image: 120091909981.dkr.ecr.eu-central-1.amazonaws.com/whetherforecast:v1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080

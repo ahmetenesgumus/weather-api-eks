@@ -1,0 +1,32 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: dev-eks
+  region: eu-central-1
+  version: "1.29"
+iam:
+  withOIDC: true
+vpc:
+  nat:
+    gateway: Disable
+  clusterEndpoints:
+    publicAccess: true
+    privateAccess: false
+managedNodeGroups:
+  - name: ng-spot
+    instanceTypes: ["t3.medium"]
+    desiredCapacity: 1
+    minSize: 0
+    maxSize: 2
+    capacityType: SPOT
+    privateNetworking: false
+    labels: { role: worker }
+    iam:
+      withAddonPolicies:
+        imageBuilder: true
+        cloudWatch: true
+    ssh:
+      allow: false
+    tags:
+      k8s.io/cluster-autoscaler/enabled: "true"
+      k8s.io/cluster-autoscaler/dev-eks: "owned"
